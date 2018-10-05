@@ -15,7 +15,6 @@
 		A624CA3F2167AE5000528334 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A624CA3D2167AE5000528334 /* LaunchScreen.storyboard */; };
 		A624CA472167AED300528334 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A624CA462167AED300528334 /* DetailViewController.swift */; };
 		A6D92FBE2167B0550026C3C4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D92FBD2167B0550026C3C4 /* Alamofire.framework */; };
-		A6D92FC32167B9CB0026C3C4 /* apiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D92FC22167B9CB0026C3C4 /* apiConstants.swift */; };
 		A6D92FC52167BA330026C3C4 /* apiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D92FC42167BA330026C3C4 /* apiClient.swift */; };
 		A6D92FC72167BAAC0026C3C4 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D92FC62167BAAC0026C3C4 /* Book.swift */; };
 /* End PBXBuildFile section */
@@ -32,7 +31,6 @@
 		A624CA402167AE5000528334 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A624CA462167AED300528334 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A6D92FBD2167B0550026C3C4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6D92FC22167B9CB0026C3C4 /* apiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = apiConstants.swift; path = U_Challenge/Networking/apiConstants.swift; sourceTree = SOURCE_ROOT; };
 		A6D92FC42167BA330026C3C4 /* apiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = apiClient.swift; path = /Users/ls/Documents/Dev/Job_Tests/U_Challenge/U_Challenge/Networking/apiClient.swift; sourceTree = "<absolute>"; };
 		A6D92FC62167BAAC0026C3C4 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Book.swift; path = /Users/ls/Documents/Dev/Job_Tests/U_Challenge/U_Challenge/Book.swift; sourceTree = "<absolute>"; };
 		BA0AFB7F87543A557B55F994 /* Pods_U_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_U_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				A6D92FC42167BA330026C3C4 /* apiClient.swift */,
-				A6D92FC22167B9CB0026C3C4 /* apiConstants.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -252,7 +249,6 @@
 				A624CA472167AED300528334 /* DetailViewController.swift in Sources */,
 				A6D92FC72167BAAC0026C3C4 /* Book.swift in Sources */,
 				A624CA372167AE4D00528334 /* MasterViewController.swift in Sources */,
-				A6D92FC32167B9CB0026C3C4 /* apiConstants.swift in Sources */,
 				A6D92FC52167BA330026C3C4 /* apiClient.swift in Sources */,
 				A624CA352167AE4D00528334 /* AppDelegate.swift in Sources */,
 			);

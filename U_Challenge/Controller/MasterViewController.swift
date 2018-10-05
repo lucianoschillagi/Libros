@@ -96,9 +96,6 @@ class MasterViewController: UIViewController {
 			let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as UITableViewCell
 			
 			
-			
-			//students.sort(by: >)
-			
 			var popularidadIntArray = [Int]()
 			
 			for item in bookArray {
@@ -116,27 +113,31 @@ class MasterViewController: UIViewController {
 			cell.imageView?.image = preImageDrink
 			
 			// popularity
-			var popularity = book?.popularity
+			let popularity = book?.popularity
 			var popularityString = String()
+			var disponibilidad = ""
 			
 			if let popularity = popularity { popularityString = String(popularity) }
-			
-			
-			
-			cell.textLabel?.text = book?.name
-			cell.detailTextLabel?.text = (book?.author)! + " \(popularityString)"
-			
-			
 			
 			// availability
 			if let availability = book?.availability {
 				
-				if availability == false {
-					cell.backgroundColor = .blue
-
+				if availability == true {
+					disponibilidad = "-Disponible-"
+				} else {
+					disponibilidad = "-No disponible-"
 				}
-			
+				
 			}
+			
+			
+			
+			cell.textLabel?.text = book?.name
+			cell.detailTextLabel?.text = (book?.author)! + " \(popularityString)" + " \(disponibilidad)"
+			
+			
+			
+
 			
 			
 			
