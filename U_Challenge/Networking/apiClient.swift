@@ -14,7 +14,7 @@ import Alamofire
 /* Abstract
 */
 
-class CocktailApiClient: NSObject {
+class BookApiClient: NSObject {
 	
 	//*****************************************************************
 	// MARK: - Initializers
@@ -34,53 +34,49 @@ class CocktailApiClient: NSObject {
 	//*****************************************************************
 	
 	
-//	// MARK: Get Libros
-//	// task: obtener una serie de libros
-//	static func getLibros(completionHandlerForGetBooks: @escaping (_ success: Bool, _ result: [Book]?, _ error: String?) -> Void)  {
-//		
-//		let cocktailUrl = "https://qodyhvpf8b.execute-api.us-east-1.amazonaws.com/test/books"
-//		
-//		/* 1. 📞 Realiza la llamada a la API, a través de la función request() de Alamofire 🚀 */
-//		Alamofire.request(cocktailUrl).responseJSON { response in
-//			
-//			debugPrint("🎬\(response)")
-//			
-//			// response status code
-//			if let status = response.response?.statusCode {
-//				switch(status){
-//				case 200:
-//					print("example success")
-//				default:
-//					let errorMessage = "error with response status: \(status)"
-//					completionHandlerForGetCocktails(false, nil, errorMessage)
-//				}
-//			}
-//			
-//			/* 2. Almacena la respuesta del servidor (response.result.value) en la constante 'jsonObjectResult' 📦 */
-//			if let jsonObjectResult: Any = response.result.value {
-//				
-//				debugPrint("☠️jsonObjectResult")
-//				
-//				let jsonObjectResultDictionary = jsonObjectResult as! [String:AnyObject]
-//				
-//				debugPrint("🤜JSON COCKTAILS: \(jsonObjectResult)") // JSON obtenido
-//				
-//				if let results = jsonObjectResultDictionary["drinks"] {
-//					
-//					let resultsCocktails = Cocktail.drinkFromResults(results as! [[String : AnyObject]])
-//					
-//					//test
-//					debugPrint("🤾🏼‍♂️ Cocktails...\(resultsCocktails)")
-//					
-//					completionHandlerForGetCocktails(true, resultsCocktails, nil)
-//					
-//				}
-//			}
-//		}
-//	}
-//
-//
-//	
+	// MARK: Get Libros
+	// task: obtener una serie de libros
+	static func getBooks(completionHandlerForGetBooks: @escaping (_ success: Bool, _ result: [Book]?, _ error: String?) -> Void)  {
+
+		let cocktailUrl = "https://qodyhvpf8b.execute-api.us-east-1.amazonaws.com/test/books"
+
+		/* 1. 📞 Realiza la llamada a la API, a través de la función request() de Alamofire 🚀 */
+		Alamofire.request(cocktailUrl).responseJSON { response in
+
+			debugPrint("🎬\(response)")
+
+			// response status code
+			if let status = response.response?.statusCode {
+				switch(status){
+				case 200:
+					print("example success")
+				default:
+					let errorMessage = "error with response status: \(status)"
+					completionHandlerForGetBooks(false, nil, errorMessage)
+				}
+			}
+			// end response status code
+			
+			/* 2. Almacena la respuesta del servidor (response.result.value) en la constante 'jsonObjectResult' 📦 */
+			if let jsonObjectResult: Any = response.result.value {
+
+				debugPrint("☠️jsonObjectResult")
+
+				let jsonObjectResultDictionary = jsonObjectResult as! [[String:AnyObject]]
+
+				debugPrint("🤜JSON BOOKS: \(jsonObjectResult)") // JSON obtenido
+
+					let resultsBooks = Book.bookFromResults(jsonObjectResultDictionary as! [[String : AnyObject]])
+
+					//test
+					debugPrint("🤾🏼‍♂️ Books...\(resultsBooks)")
+					completionHandlerForGetBooks(true, resultsBooks, nil)
+			}
+		}
+	}
+
+
+	
 //	// MARK: Get Detail Cocktails
 //	// task: obtener los datos de los detalles de cada trago
 //	static func getCocktailDetails (_ idDrink: String, _ completionHandlerForGetCocktailsDetails: @escaping (_ success: Bool, _ result: [Cocktail]?, _ error: String?) -> Void) {

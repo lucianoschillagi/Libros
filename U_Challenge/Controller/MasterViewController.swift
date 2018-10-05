@@ -16,22 +16,20 @@ import UIKit
 
 class MasterViewController: UIViewController {
 	
-	
 	//*****************************************************************
 	// MARK: - Properties
 	//*****************************************************************
 	
 	/// Model
-	let preModel = ["A", "B", "C", "D", "E"]
+	var book: Book?
+	var bookArray = [Book]()
 	
 	//*****************************************************************
 	// MARK: - IBOutlets
 	//*****************************************************************
 	
-	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var bookTableView: UITableView!
 	@IBOutlet weak var networkActivity: UIActivityIndicatorView!
-	
-	
 	
 	//*****************************************************************
 	// MARK: - VC Life Cycle
@@ -40,7 +38,41 @@ class MasterViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	
-		navigationItem.title = "Master"
+		navigationItem.title = "Bienvenido a la bibliotecta Ualá"
+		
+		// Networking ⬇ : Cocktails
+		BookApiClient.getBooks { (success, resultBooks, error) in
+			
+			DispatchQueue.main.async {
+				
+				if success {
+					// comprueba si el 'resultMedia' recibido contiene algún valor
+					if let resultBooks = resultBooks {
+						
+						
+						self.bookArray = resultBooks // 🔌 👏
+						self.networkActivity.stopAnimating()
+						self.bookTableView.reloadData()
+						
+						//test
+						for item in self.bookArray {
+							
+							debugPrint("el nombre del libro es: \(item.name!)")
+						}
+						
+					}
+					
+				} else {
+					// si devuelve un error
+					//self.displayAlertView(title: "Error Request", message: error)
+				}
+			}
+		}
+		
+		
+		
+		
+		
 	}
 
 
@@ -54,7 +86,7 @@ class MasterViewController: UIViewController {
 	extension MasterViewController: UITableViewDataSource {
 		
 		func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-			return preModel.count
+			return bookArray.count
 		}
 	
 		func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
