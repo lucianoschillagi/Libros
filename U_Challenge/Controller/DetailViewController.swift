@@ -12,22 +12,77 @@ class DetailViewController: UIViewController {
 	
 	
 		//var selectedRow: Cocktail?
+	var selectedBook: Book?
+	
 
+	//*****************************************************************
+	// MARK: - Properties
+	//*****************************************************************
+	
+	
+	//*****************************************************************
+	// MARK: - IBOutlets
+	//*****************************************************************
+	
+	@IBOutlet weak var bookImage: UIImageView!
+	@IBOutlet weak var idLabel: UILabel!
+	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var authorLabel: UILabel!
+	@IBOutlet weak var availabilityLabel: UILabel!
+	@IBOutlet weak var popularityLabel: UILabel!
+	
+	
+	//*****************************************************************
+	// MARK: - VC Life Cycle
+	//*****************************************************************
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+			
+			
+			navigationItem.title = selectedBook?.name
+			
+			
+			nameLabel.text = selectedBook?.name
+			authorLabel.text = selectedBook?.author
+			
+			if selectedBook?.availability == true {
+				availabilityLabel.text = "Disponible"
+			} else {
+				availabilityLabel.text = "No disponible"
+			}
+			
+			var popularityString = ""
+			var idString = ""
+			if let popularityInt = selectedBook?.popularity { popularityString = String(popularityInt) }
+			if let idInt = selectedBook?.id { idString = String(idString) }
+			
+			idLabel.text = idString
+			popularityLabel.text = popularityString
+			
+			// get image
+			if let imageUrl = selectedBook?.image {
+				
+				let _ = BookApiClient.getBookImage((selectedBook?.image)!) { (imageData, error) in
+					
+					if let image = UIImage(data: imageData!) {
+						
+						DispatchQueue.main.async {
+							self.bookImage.image = image
+							
+						}
+					} else {
+						self.bookImage.backgroundColor = .gray
+					}
+				}
+				
+			}
+			
+			
     }
-    
+	
+	
 
-    /*
-    // MARK: - Navigation
+	
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
+} // end class

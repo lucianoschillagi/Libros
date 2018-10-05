@@ -94,6 +94,23 @@ class MasterViewController: UIViewController {
 			let preImageDrink = UIImage(named: "preImage")
 			let cellReuseId = "cell"
 			let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as UITableViewCell
+			
+			
+			
+			//students.sort(by: >)
+			
+			var popularidadIntArray = [Int]()
+			
+			for item in bookArray {
+
+				popularidadIntArray.append(item.popularity!)
+				popularidadIntArray.sort(by: >)
+				
+			}
+			
+			print("🔎\(popularidadIntArray)")
+		
+			
 			book = bookArray[(indexPath as NSIndexPath).row]
 			
 			cell.imageView?.image = preImageDrink
@@ -102,12 +119,46 @@ class MasterViewController: UIViewController {
 			var popularity = book?.popularity
 			var popularityString = String()
 			
-			if let popularity = popularity {
-			popularityString = String(popularity)
-			}
+			if let popularity = popularity { popularityString = String(popularity) }
+			
+			
 			
 			cell.textLabel?.text = book?.name
 			cell.detailTextLabel?.text = (book?.author)! + " \(popularityString)"
+			
+			
+			
+			// availability
+			if let availability = book?.availability {
+				
+				if availability == false {
+					cell.backgroundColor = .blue
+
+				}
+			
+			}
+			
+			
+			
+			// get image
+			if let imageUrl = book?.image {
+				
+				let _ = BookApiClient.getBookImage((book?.image)!) { (imageData, error) in
+					
+					if let image = UIImage(data: imageData!) {
+						
+						DispatchQueue.main.async {
+							print("🧙🏽‍♀️ datos de la imagen\(imageData!), uimage: \(image)")
+							cell.imageView!.image = image
+							print("🔎\(image)")
+
+						}
+					} else {
+						print(error ?? "empty error")
+					}
+				}
+				
+			}
 			
 			
 			return cell
@@ -121,11 +172,11 @@ class MasterViewController: UIViewController {
 
 extension MasterViewController: UITableViewDelegate {
 
-	// task: navegar hacia el detalle de la película (de acuerdo al listado de películas actual)
+	// task: navegar hacia el detalle del libro
 		func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 			let storyboardId = "Detail"
 			let controller = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! DetailViewController
-			//controller.selecteCocktail = cocktailArray[(indexPath as NSIndexPath).row]
+			controller.selectedBook = bookArray[(indexPath as NSIndexPath).row]
 			navigationController!.pushViewController(controller, animated: true)
 		}
 

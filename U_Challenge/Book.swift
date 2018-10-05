@@ -16,7 +16,7 @@ struct Book {
 	//*****************************************************************
 	
 	// datos libro
-	let id: String? // 'id'
+	let id: Int? // 'id'
 	let name: String? // 'nombre'
 	let author: String? // 'autor'
 	let availability: Bool? // 'disponibilidad'
@@ -29,7 +29,7 @@ struct Book {
 	
 	// construye el objeto 'Libro' desde un diccionario  👈
 	init(dictionary: [String:AnyObject]) {
-		id = dictionary["id"] as? String
+		id = dictionary["id"] as? Int
 		name = dictionary["nombre"] as? String
 		author = dictionary["autor"] as? String
 		availability = dictionary["disponibilidad"] as? Bool
