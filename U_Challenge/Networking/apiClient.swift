@@ -34,11 +34,11 @@ class CocktailApiClient: NSObject {
 	//*****************************************************************
 	
 	
-//	// MARK: Get Cocktails
-//	// task: obtener la lista de tragos
-//	static func getCocktails(completionHandlerForGetCocktails: @escaping (_ success: Bool, _ result: [Cocktail]?, _ error: String?) -> Void)  {
+//	// MARK: Get Libros
+//	// task: obtener una serie de libros
+//	static func getLibros(completionHandlerForGetBooks: @escaping (_ success: Bool, _ result: [Book]?, _ error: String?) -> Void)  {
 //		
-//		let cocktailUrl = "http://www.thecocktaildb.com/api/json/v1/1/filter.php?g=Cocktail_glass"
+//		let cocktailUrl = "https://qodyhvpf8b.execute-api.us-east-1.amazonaws.com/test/books"
 //		
 //		/* 1. 📞 Realiza la llamada a la API, a través de la función request() de Alamofire 🚀 */
 //		Alamofire.request(cocktailUrl).responseJSON { response in
@@ -78,7 +78,7 @@ class CocktailApiClient: NSObject {
 //			}
 //		}
 //	}
-//	
+//
 //
 //	
 //	// MARK: Get Detail Cocktails
