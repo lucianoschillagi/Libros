@@ -94,8 +94,21 @@ class MasterViewController: UIViewController {
 			let preImageDrink = UIImage(named: "preImage")
 			let cellReuseId = "cell"
 			let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as UITableViewCell
-			cell.textLabel?.text = "prueba"
+			book = bookArray[(indexPath as NSIndexPath).row]
+			
 			cell.imageView?.image = preImageDrink
+			
+			// popularity
+			var popularity = book?.popularity
+			var popularityString = String()
+			
+			if let popularity = popularity {
+			popularityString = String(popularity)
+			}
+			
+			cell.textLabel?.text = book?.name
+			cell.detailTextLabel?.text = (book?.author)! + " \(popularityString)"
+			
 			
 			return cell
 		}
