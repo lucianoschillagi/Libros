@@ -11,7 +11,7 @@
 import UIKit
 
 /* Abstract:
---
+La pantalla inicial muestra un listado de libros.
 */
 
 class MasterViewController: UIViewController {
@@ -40,7 +40,15 @@ class MasterViewController: UIViewController {
 		super.viewDidLoad()
 	
 		navigationItem.title = "Bienvenido a la bibliotecta Ualá"
-		
+		updateUI_afterCompleteNetworkRequest()
+	}
+
+	
+	//*****************************************************************
+	// MARK: - Update the UI (after complete network request)
+	//*****************************************************************
+	
+	func updateUI_afterCompleteNetworkRequest() {
 		// Networking ⬇ : Books
 		BookApiClient.getBooks { (success, resultBooks, error) in
 			
@@ -52,18 +60,15 @@ class MasterViewController: UIViewController {
 						self.bookArray = resultBooks // 🔌 👏
 						self.networkActivity.stopAnimating()
 						self.bookTableView.reloadData()
-						
 					}
-					
 				} else {
-					// si devuelve un error
+					// si devuelve un error, mostrar un alert view
 					self.displayAlertView("Error Request", error)
 				}
 			}
 		}
-		
+	
 	}
-
 	
 	//*****************************************************************
 	// MARK: - Alert View
