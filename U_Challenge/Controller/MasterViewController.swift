@@ -23,6 +23,7 @@ class MasterViewController: UIViewController {
 	/// Model
 	var book: Book?
 	var bookArray = [Book]()
+	var bookPopularityArray = [Book]()
 	
 	//*****************************************************************
 	// MARK: - IBOutlets
@@ -43,13 +44,13 @@ class MasterViewController: UIViewController {
 		// Networking ⬇ : Cocktails
 		BookApiClient.getBooks { (success, resultBooks, error) in
 			
+			//debugPrint("👨🏼‍🚀\(resultBooks)")
+			
 			DispatchQueue.main.async {
 				
 				if success {
 					// comprueba si el 'resultMedia' recibido contiene algún valor
 					if let resultBooks = resultBooks {
-						
-						
 						self.bookArray = resultBooks // 🔌 👏
 						self.networkActivity.stopAnimating()
 						self.bookTableView.reloadData()
@@ -69,12 +70,7 @@ class MasterViewController: UIViewController {
 			}
 		}
 		
-		
-		
-		
-		
 	}
-
 
 }
 
@@ -96,18 +92,9 @@ class MasterViewController: UIViewController {
 			let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as UITableViewCell
 			
 			
-			var popularidadIntArray = [Int]()
+			var popularBookArray = [Book]()
 			
-			for item in bookArray {
 
-				popularidadIntArray.append(item.popularity!)
-				popularidadIntArray.sort(by: >)
-				
-			}
-			
-			print("🔎\(popularidadIntArray)")
-		
-			
 			book = bookArray[(indexPath as NSIndexPath).row]
 			
 			cell.imageView?.image = preImageDrink
@@ -119,49 +106,39 @@ class MasterViewController: UIViewController {
 			
 			if let popularity = popularity { popularityString = String(popularity) }
 			
+			
 			// availability
 			if let availability = book?.availability {
 				
 				if availability == true {
-					disponibilidad = "-Disponible-"
+					//disponibilidad = "-Disponible-"
+					cell.accessoryType = .checkmark
 				} else {
-					disponibilidad = "-No disponible-"
+					//disponibilidad = "-No disponible-"
+					cell.accessoryType = .none
 				}
 				
 			}
 			
-			
-			
 			cell.textLabel?.text = book?.name
-			cell.detailTextLabel?.text = (book?.author)! + " \(popularityString)" + " \(disponibilidad)"
-			
-			
-			
-
-			
+			cell.detailTextLabel?.text = (book?.author)! + " \(popularityString)" // + " \(disponibilidad)"
 			
 			
 			// get image
-			if let imageUrl = book?.image {
+			if (book?.image) != nil {
 				
 				let _ = BookApiClient.getBookImage((book?.image)!) { (imageData, error) in
 					
 					if let image = UIImage(data: imageData!) {
-						
 						DispatchQueue.main.async {
-							print("🧙🏽‍♀️ datos de la imagen\(imageData!), uimage: \(image)")
 							cell.imageView!.image = image
-							print("🔎\(image)")
-
 						}
 					} else {
 						print(error ?? "empty error")
 					}
 				}
-				
 			}
-			
-			
+	
 			return cell
 		}
 	
