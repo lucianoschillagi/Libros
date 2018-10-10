@@ -26,7 +26,6 @@ struct Book {
 	//*****************************************************************
 	// MARK: - Initializers
 	//*****************************************************************
-	
 	// construye el objeto 'Libro' desde un diccionario  👈
 	init(dictionary: [String:AnyObject]) {
 		id = dictionary["id"] as? Int

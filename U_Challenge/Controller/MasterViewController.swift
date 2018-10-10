@@ -41,38 +41,59 @@ class MasterViewController: UIViewController {
 	
 		navigationItem.title = "Bienvenido a la bibliotecta Ualá"
 		
-		// Networking ⬇ : Cocktails
+		// Networking ⬇ : Books
 		BookApiClient.getBooks { (success, resultBooks, error) in
-			
-			//debugPrint("👨🏼‍🚀\(resultBooks)")
 			
 			DispatchQueue.main.async {
 				
 				if success {
-					// comprueba si el 'resultMedia' recibido contiene algún valor
+					// comprueba si el 'resultBooks' recibido contiene algún valor
 					if let resultBooks = resultBooks {
 						self.bookArray = resultBooks // 🔌 👏
 						self.networkActivity.stopAnimating()
 						self.bookTableView.reloadData()
 						
-						//test
-						for item in self.bookArray {
-							
-							debugPrint("el nombre del libro es: \(item.name!)")
-						}
-						
 					}
 					
 				} else {
 					// si devuelve un error
-					//self.displayAlertView(title: "Error Request", message: error)
+					self.displayAlertView("Error Request", error)
 				}
 			}
 		}
 		
 	}
 
-}
+	
+	//*****************************************************************
+	// MARK: - Alert View
+	//*****************************************************************
+	
+	/**
+	Muestra al usuario un mensaje acerca de porqué la solicitud falló.
+	
+	- Parameter title: El título del error.
+	- Parameter message: El mensaje acerca del error.
+	
+	*/
+	func displayAlertView(_ title: String?, _ error: String?) {
+		
+		// si ocurre un error en la solicitud, mostrar una vista de alerta!
+		if error != nil {
+			
+			let alertController = UIAlertController(title: title, message: error, preferredStyle: .alert)
+			
+			let OKAction = UIAlertAction(title: "OK", style: .default) { action in
+				
+			}
+			
+			alertController.addAction(OKAction)
+			self.present(alertController, animated: true) {}
+		}
+	}
+	
+	
+} // end class
 
 
 	//*****************************************************************
@@ -92,7 +113,7 @@ class MasterViewController: UIViewController {
 			let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as UITableViewCell
 			
 			
-			var popularBookArray = [Book]()
+			//var popularBookArray = [Book]()
 			
 
 			book = bookArray[(indexPath as NSIndexPath).row]
@@ -102,7 +123,7 @@ class MasterViewController: UIViewController {
 			// popularity
 			let popularity = book?.popularity
 			var popularityString = String()
-			var disponibilidad = ""
+		
 			
 			if let popularity = popularity { popularityString = String(popularity) }
 			
@@ -111,18 +132,15 @@ class MasterViewController: UIViewController {
 			if let availability = book?.availability {
 				
 				if availability == true {
-					//disponibilidad = "-Disponible-"
 					cell.accessoryType = .checkmark
 				} else {
-					//disponibilidad = "-No disponible-"
 					cell.accessoryType = .none
 				}
 				
 			}
 			
 			cell.textLabel?.text = book?.name
-			cell.detailTextLabel?.text = (book?.author)! + " \(popularityString)" // + " \(disponibilidad)"
-			
+			cell.detailTextLabel?.text = (book?.author)! + " | Popularidad:" + "\(popularityString)"
 			
 			// get image
 			if (book?.image) != nil {
