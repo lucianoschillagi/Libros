@@ -6,7 +6,13 @@
 //  Copyright © 2018 luko. All rights reserved.
 //
 
+/* Controller */
+
 import UIKit
+
+/* Abstract:
+La pantalla de detalle muestra información adicional sobre el libro seleccionado.
+*/
 
 class DetailViewController: UIViewController {
 	
@@ -33,10 +39,15 @@ class DetailViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+			
+				// setup UI
 				navigationItem.title = selectedBook?.name
 				setupUI()
     }
 	
+	//*****************************************************************
+	// MARK: - Setup UI Elements
+	//*****************************************************************
 	
 	// task: configurar los elementos visibles de la UI
 	func setupUI() {

@@ -33,16 +33,12 @@ class BookApiClient: NSObject {
 	//*****************************************************************
 	
 	
-	// MARK: Get Libros
+	// MARK: Get Books
 	// task: obtener una serie de libros
 	static func getBooks(completionHandlerForGetBooks: @escaping (_ success: Bool, _ result: [Book]?, _ error: String?) -> Void)  {
 
-		let cocktailUrl = "https://qodyhvpf8b.execute-api.us-east-1.amazonaws.com/test/books"
-
 		/* 1. 📞 Realiza la llamada a la API, a través de la función request() de Alamofire 🚀 */
-		Alamofire.request(cocktailUrl).responseJSON { response in
-
-			debugPrint("🎬\(response)")
+		Alamofire.request(BookApiClient.Constants.ApiUrl).responseJSON { response in
 
 			// response status code
 			if let status = response.response?.statusCode {
@@ -58,24 +54,14 @@ class BookApiClient: NSObject {
 			
 			/* 2. Almacena la respuesta del servidor (response.result.value) en la constante 'jsonObjectResult' 📦 */
 			if let jsonObjectResult: Any = response.result.value {
-
-				debugPrint("☠️jsonObjectResult")
-
 				let jsonObjectResultDictionary = jsonObjectResult as! [[String:AnyObject]]
-
-				debugPrint("🤜JSON BOOKS: \(jsonObjectResult)") // JSON obtenido
-
-					let resultsBooks = Book.bookFromResults(jsonObjectResultDictionary as! [[String : AnyObject]])
-
-					//test
-					debugPrint("🤾🏼‍♂️ Books...\(resultsBooks)")
+				let resultsBooks = Book.bookFromResults(jsonObjectResultDictionary)
+				debugPrint("👾\(resultsBooks)")
 					completionHandlerForGetBooks(true, resultsBooks, nil)
 			}
 		}
 	}
 
-
-	
 	// MARK: Get Book Images
 	// task: obtener las imágenes de los libros
 	static func getBookImage(_ imageUrl: String, _ completionHandlerForBookImage: @escaping ( _ imageData: Data?, _ error: String?) -> Void) {
@@ -100,11 +86,7 @@ class BookApiClient: NSObject {
 			if let dataObjectResult: Any = response.result.value {
 				
 				let dataObjectResult = dataObjectResult as! Data
-				
 				completionHandlerForBookImage(dataObjectResult, nil)
-				
-				//test
-				debugPrint("Los datos de la imagen: \(dataObjectResult)")
 			}
 		}
 	}

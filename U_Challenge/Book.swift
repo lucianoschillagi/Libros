@@ -28,12 +28,12 @@ struct Book {
 	//*****************************************************************
 	// construye el objeto 'Libro' desde un diccionario  👈
 	init(dictionary: [String:AnyObject]) {
-		id = dictionary["id"] as? Int
-		name = dictionary["nombre"] as? String
-		author = dictionary["autor"] as? String
-		availability = dictionary["disponibilidad"] as? Bool
-		popularity = dictionary["popularidad"] as? Int
-		image = dictionary["imagen"] as? String
+		id = dictionary[BookApiClient.JSONResponseKeys.ID] as? Int
+		name = dictionary[BookApiClient.JSONResponseKeys.Name] as? String
+		author = dictionary[BookApiClient.JSONResponseKeys.Author] as? String
+		availability = dictionary[BookApiClient.JSONResponseKeys.Availability] as? Bool
+		popularity = dictionary[BookApiClient.JSONResponseKeys.Popularity] as? Int
+		image = dictionary[BookApiClient.JSONResponseKeys.ImageUrl] as? String
 	}
 	
 	//*****************************************************************
@@ -44,7 +44,7 @@ struct Book {
 		
 		var bookArray = [Book]()
 		
-		// itera a través del array de diccionarios, cada ´Libro´ es un diccionario
+		// itera a través del array de diccionarios, cada ´Book´ es un diccionario
 		for result in bookResults {
 			bookArray.append(Book(dictionary: result))
 		}
