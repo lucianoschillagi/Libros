@@ -34,9 +34,10 @@
 		A624CA462167AED300528334 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A667A2F2216EB88F00E262FD /* MasterTableViewMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewMethods.swift; sourceTree = "<group>"; };
 		A681C57A2173C45D00D5A881 /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiConstants.swift; path = U_Challenge/Networking/ApiConstants.swift; sourceTree = SOURCE_ROOT; };
+		A681C57C2173CAA200D5A881 /* SortArray.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SortArray.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A6D92FBD2167B0550026C3C4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6D92FC42167BA330026C3C4 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiClient.swift; path = /Users/ls/Documents/Dev/Job_Tests/U_Challenge/U_Challenge/Networking/ApiClient.swift; sourceTree = "<absolute>"; };
-		A6D92FC62167BAAC0026C3C4 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Book.swift; path = /Users/ls/Documents/Dev/Job_Tests/U_Challenge/U_Challenge/Book.swift; sourceTree = "<absolute>"; };
+		A6D92FC42167BA330026C3C4 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiClient.swift; path = /Users/ls/Documents/Dev/Job_Tests/Uala_Challenge/U_Challenge/Networking/ApiClient.swift; sourceTree = "<absolute>"; };
+		A6D92FC62167BAAC0026C3C4 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Book.swift; path = /Users/ls/Documents/Dev/Job_Tests/Uala_Challenge/U_Challenge/Book.swift; sourceTree = "<absolute>"; };
 		BA0AFB7F87543A557B55F994 /* Pods_U_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_U_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,6 +91,7 @@
 				A624CA3B2167AE5000528334 /* Assets.xcassets */,
 				A624CA3D2167AE5000528334 /* LaunchScreen.storyboard */,
 				A624CA402167AE5000528334 /* Info.plist */,
+				A681C57C2173CAA200D5A881 /* SortArray.playground */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -118,8 +120,7 @@
 			children = (
 				A6D92FC62167BAAC0026C3C4 /* Book.swift */,
 			);
-			name = Model;
-			path = "New Group";
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C04E0EA2B80892B316275F96 /* Frameworks */ = {

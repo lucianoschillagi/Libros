@@ -56,7 +56,6 @@ class BookApiClient: NSObject {
 			if let jsonObjectResult: Any = response.result.value {
 				let jsonObjectResultDictionary = jsonObjectResult as! [[String:AnyObject]]
 				let resultsBooks = Book.bookFromResults(jsonObjectResultDictionary)
-				debugPrint("👾\(resultsBooks)")
 					completionHandlerForGetBooks(true, resultsBooks, nil)
 			}
 		}
@@ -82,10 +81,19 @@ class BookApiClient: NSObject {
 			}
 			// end status response
 			
+
+			
 			/* 2. Almacena la respuesta del servidor (response.result.value) en la constante 'dataObjectResult' 📦 */
 			if let dataObjectResult: Any = response.result.value {
 				
 				let dataObjectResult = dataObjectResult as! Data
+				print("dataObjectResult \(dataObjectResult)")
+				
+				
+				
+				
+				
+				
 				completionHandlerForBookImage(dataObjectResult, nil)
 			}
 		}

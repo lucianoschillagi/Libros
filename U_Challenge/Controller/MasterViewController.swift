@@ -22,8 +22,9 @@ class MasterViewController: UIViewController {
 	
 	/// Model
 	var book: Book?
-	var bookArray = [Book]()
-	var bookPopularityArray = [Book]()
+	var bookArray = [Book]() // un array con los objetos 'Book' recibidos
+	var bookPopularityArray = [Book]() // un array con los libros ordenados de más a menos popular
+	var bookLessPopularityArray = [Book]() // un array con los libros ordenados de menos a más popular
 	
 	//*****************************************************************
 	// MARK: - IBOutlets
@@ -44,6 +45,8 @@ class MasterViewController: UIViewController {
 		updateUI_afterCompleteNetworkRequest()
 	}
 
+	
+	
 	//*****************************************************************
 	// MARK: - Update the UI (after complete network request)
 	//*****************************************************************
@@ -57,7 +60,12 @@ class MasterViewController: UIViewController {
 				if success {
 					// comprueba si el 'resultBooks' recibido contiene algún valor
 					if let resultBooks = resultBooks {
+						
+						// con los libros obtenidos crea 3 arrays distintos
 						self.bookArray = resultBooks // 🔌 👏
+						self.bookPopularityArray = self.bookArray.sorted(by: { $0.popularity! > $1.popularity! } )
+						self.bookLessPopularityArray = self.bookArray.sorted(by: { $0.popularity! < $1.popularity! } )
+						
 						self.networkActivity.stopAnimating()
 						self.bookTableView.reloadData()
 					}

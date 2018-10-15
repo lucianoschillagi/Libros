@@ -69,7 +69,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Jpp-pG-Hdd"/>
+                    <navigationItem key="navigationItem" id="Jpp-pG-Hdd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Ias-PG-UiX"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="bookTableView" destination="MoZ-qg-aUU" id="wUR-o7-P8D"/>
                         <outlet property="networkActivity" destination="WqC-Eu-OWx" id="Zga-zL-uNs"/>

@@ -16,7 +16,7 @@ import UIKit
 extension MasterViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return bookArray.count
+		return bookPopularityArray.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -26,17 +26,16 @@ extension MasterViewController: UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as UITableViewCell
 		
 		
-		//var popularBookArray = [Book]()
+		//de arriba para abajo ordena la filas de libro más a menos popular
+		book = bookPopularityArray[(indexPath as NSIndexPath).row]
 		
-		
-		book = bookArray[(indexPath as NSIndexPath).row]
+
 		
 		cell.imageView?.image = preImageDrink
 		
 		// popularity
 		let popularity = book?.popularity
 		var popularityString = String()
-		
 		
 		if let popularity = popularity { popularityString = String(popularity) }
 		

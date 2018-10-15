@@ -24,7 +24,6 @@ extension BookApiClient {
 		static let ApiUrl = "https://qodyhvpf8b.execute-api.us-east-1.amazonaws.com/test/books"
 	}
 	
-	
 	//*****************************************************************
 	// MARK: - JSON Response Keys
 	//*****************************************************************
@@ -33,8 +32,8 @@ extension BookApiClient {
 		static let ID = "id"
 		static let Name = "nombre"
 		static let Author = "autor"
-		static let Availability = "availability"
-		static let Popularity = "popularity"
+		static let Availability = "disponibilidad"
+		static let Popularity = "popularidad"
 		static let ImageUrl = "imagen"
 	}
 }
