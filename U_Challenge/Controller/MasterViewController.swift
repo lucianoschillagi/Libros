@@ -21,7 +21,7 @@ class MasterViewController: UIViewController {
 	//*****************************************************************
 	
 	/// Model
-	var book: Book?
+	var book: Book? // representa un objeto 'libro'
 	var bookArray = [Book]() // un array con los objetos 'Book' recibidos
 	var bookPopularityArray = [Book]() // un array con los libros ordenados de más a menos popular
 	var bookLessPopularityArray = [Book]() // un array con los libros ordenados de menos a más popular
@@ -44,9 +44,17 @@ class MasterViewController: UIViewController {
 		navigationItem.title = "Bienvenido a la bibliotecta Ualá"
 		updateUI_afterCompleteNetworkRequest()
 	}
+	
+	//*****************************************************************
+	// MARK: - IBActions
+	//*****************************************************************
+	
+	// task: ordenar la tabla de libro menos a más popular
+	@IBAction func reorderTableView(_ sender: UIBarButtonItem) {
+		
+	}
+	
 
-	
-	
 	//*****************************************************************
 	// MARK: - Update the UI (after complete network request)
 	//*****************************************************************
@@ -92,11 +100,8 @@ class MasterViewController: UIViewController {
 		
 		// si ocurre un error en la solicitud, mostrar una vista de alerta!
 		if error != nil {
-			
 			let alertController = UIAlertController(title: title, message: error, preferredStyle: .alert)
-			
 			let OKAction = UIAlertAction(title: "OK", style: .default) { action in
-				
 			}
 			
 			alertController.addAction(OKAction)

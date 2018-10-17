@@ -20,9 +20,7 @@ extension BookApiClient {
 	// MARK: - Constants
 	//*****************************************************************
 	
-	struct Constants {
-		static let ApiUrl = "https://qodyhvpf8b.execute-api.us-east-1.amazonaws.com/test/books"
-	}
+	struct Constants { static let ApiUrl = "https://qodyhvpf8b.execute-api.us-east-1.amazonaws.com/test/books" }
 	
 	//*****************************************************************
 	// MARK: - JSON Response Keys

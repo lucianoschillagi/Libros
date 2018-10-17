@@ -9,6 +9,10 @@
 
 import Foundation
 
+/* Abstract:
+Un objeto que representa un libro preparado para recibir y alojar los datos a recibir de la API.
+*/
+
 struct Book {
 	
 	//*****************************************************************
@@ -52,4 +56,4 @@ struct Book {
 		return bookArray
 	}
 	
-} // end class
+} // end struct

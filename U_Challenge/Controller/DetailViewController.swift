@@ -84,10 +84,9 @@ class DetailViewController: UIViewController {
 					
 					DispatchQueue.main.async {
 						self.bookImage.image = image
-						
 					}
 				} else {
-					self.bookImage.backgroundColor = .gray
+						self.bookImage.backgroundColor = .gray
 				}
 			}
 			

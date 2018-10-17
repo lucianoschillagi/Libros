@@ -1,0 +1,35 @@
+
+U_Challenge
+
+MVC
+
+Objetos del Modelo:
+
+- Book (struct)
+- BookApiClient (class, NSObject)
+
+Objetos de la Vista:
+
+- bookTableView (class, UITableView)
+- networkActivity (class, UIActivityIndicatorView)
+
+- bookImage (class, UIImageView)
+- idLabel (class, UILabel)
+- nameLabel (class, UILabel)
+- authorLabel (class, UILabel)
+- availabilityLabel (class, UILabel)
+- popularityLabel (class, UILabel)
+
+
+Objetos del Controlador:
+
+- MasterViewController (class, UIViewController)
+- alertController (class, UIAlertController)
+
+- DetailViewController (class, UIViewController)
+
+
+
+
+
+

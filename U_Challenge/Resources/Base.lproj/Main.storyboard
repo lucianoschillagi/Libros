@@ -70,7 +70,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jpp-pG-Hdd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Ias-PG-UiX"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Ias-PG-UiX">
+                            <connections>
+                                <action selector="reorderTableView:" destination="BYZ-38-t0r" id="vcF-Be-ONb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bookTableView" destination="MoZ-qg-aUU" id="wUR-o7-P8D"/>

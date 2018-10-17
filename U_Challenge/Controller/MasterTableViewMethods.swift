@@ -6,6 +6,7 @@
 //  Copyright © 2018 luko. All rights reserved.
 //
 
+/* Controller */
 
 import UIKit
 
@@ -15,21 +16,20 @@ import UIKit
 
 extension MasterViewController: UITableViewDataSource {
 	
+	// task: determinar cuantas filas tendrá la tabla
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return bookPopularityArray.count
 	}
 	
+	// task: configurar las celdas de la tabla
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let preImageDrink = UIImage(named: "preImage")
 		let cellReuseId = "cell"
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as UITableViewCell
 		
-		
-		//de arriba para abajo ordena la filas de libro más a menos popular
+		// de arriba para abajo ordena la filas de libro más a menos popular
 		book = bookPopularityArray[(indexPath as NSIndexPath).row]
-		
-
 		
 		cell.imageView?.image = preImageDrink
 		
@@ -83,9 +83,9 @@ extension MasterViewController: UITableViewDelegate {
 	// task: navegar hacia el detalle del libro
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let storyboardId = "Detail"
-		let controller = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! DetailViewController
-		controller.selectedBook = bookArray[(indexPath as NSIndexPath).row]
-		navigationController!.pushViewController(controller, animated: true)
+		let detailViewController = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! DetailViewController
+		detailViewController.selectedBook = bookPopularityArray[(indexPath as NSIndexPath).row]
+		navigationController!.pushViewController(detailViewController, animated: true)
 	}
 	
 }

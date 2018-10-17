@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		234BA66C957E964A19205367 /* Pods_U_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA0AFB7F87543A557B55F994 /* Pods_U_Challenge.framework */; };
+		A618B6682176B8390081FD8A /* objetos in Resources */ = {isa = PBXBuildFile; fileRef = A618B6672176B8390081FD8A /* objetos */; };
 		A624CA352167AE4D00528334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A624CA342167AE4D00528334 /* AppDelegate.swift */; };
 		A624CA372167AE4D00528334 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A624CA362167AE4D00528334 /* MasterViewController.swift */; };
 		A624CA3A2167AE4D00528334 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A624CA382167AE4D00528334 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		7D0BF6DF700A3D46D0744C49 /* Pods-U_Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-U_Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-U_Challenge/Pods-U_Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		9B6C370FB218B74FA7A4B68C /* Pods-U_Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-U_Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-U_Challenge/Pods-U_Challenge.release.xcconfig"; sourceTree = "<group>"; };
+		A618B6672176B8390081FD8A /* objetos */ = {isa = PBXFileReference; lastKnownFileType = text; name = objetos; path = U_Challenge/Resources/objetos; sourceTree = SOURCE_ROOT; };
 		A624CA312167AE4D00528334 /* U_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = U_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A624CA342167AE4D00528334 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A624CA362167AE4D00528334 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				A624CA3B2167AE5000528334 /* Assets.xcassets */,
 				A624CA3D2167AE5000528334 /* LaunchScreen.storyboard */,
 				A624CA402167AE5000528334 /* Info.plist */,
+				A618B6672176B8390081FD8A /* objetos */,
 				A681C57C2173CAA200D5A881 /* SortArray.playground */,
 			);
 			path = Resources;
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A624CA3F2167AE5000528334 /* LaunchScreen.storyboard in Resources */,
+				A618B6682176B8390081FD8A /* objetos in Resources */,
 				A624CA3C2167AE5000528334 /* Assets.xcassets in Resources */,
 				A624CA3A2167AE4D00528334 /* Main.storyboard in Resources */,
 			);
